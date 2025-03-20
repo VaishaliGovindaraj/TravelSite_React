@@ -1,0 +1,31 @@
+.nav_menu{
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 2px 5px 10px -2px rgba(180,156,156,0.75);
+    margin: 0;
+    padding: 32px;
+    height: 100%;
+    position:relative;
+}
+
+.nav_item_selected{
+    position: relative; 
+    cursor: pointer;
+}
+
+.menu{
+    background-color: aqua;
+    position: absolute;
+    left: 0;
+    width: 20%; 
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+}
+
+.country_div{
+    color: black;
+}
+
+.country_name{
+    cursor:pointer;
+}
