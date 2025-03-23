@@ -4,6 +4,7 @@ import Navigation from './components/Navigation/index.jsx';
 import DisplayOptions from './components/DisplayOptions/index.jsx';
 import { uniqueCountryArray, allCitiesArray,CountryDetailArray,CitiesDetailArray} from "./data/data.js";
 import CountryDetail from './components/CountryDetails/index.jsx';
+import Home from './components/Home/index.jsx';
 
 function App() {
 
@@ -17,24 +18,25 @@ const [chosenCity, setChosenCity] = useState(null);
   }
 
   const assignCountry = (item) => {
-    setChosenCategory(item);
-    console.log(chosenCategory)
+    chosenCategory ==="item" ?  setChosenCategory(null) :  setChosenCategory(item);
   }
 
   const assignCity = (item) => {
-    setChosenCity(item);
-    console.log(chosenCategory)
+    chosenCity=== "item"? setChosenCity(null) : setChosenCity(item);
   }
 
   return (
     <>
       <div>
         <Navigation selectedLink={handleClick} />
+        {selectedCategory === "home" && <Home />}
         {selectedCategory ==="countries"  && <DisplayOptions categoryArray={uniqueCountryArray} selectedLink={assignCountry}/>}
         {selectedCategory ==="cities" && <DisplayOptions categoryArray={allCitiesArray} selectedLink={assignCity}/>}
         {chosenCategory}
-        {chosenCategory && <CountryDetail countryArray ={CountryDetailArray(chosenCategory)}/>}
+        {chosenCity}
+        {chosenCategory && chosenCity &&  <CountryDetail countryArray ={CountryDetailArray(chosenCategory)}/>}
         {chosenCity && <CountryDetail countryArray = {CitiesDetailArray(chosenCity)} />}
+        
 
       </div>
     </>
